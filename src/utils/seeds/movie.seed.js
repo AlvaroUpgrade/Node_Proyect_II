@@ -1,4 +1,5 @@
 const { mongoose } = require("mongoose");
+const Cinema = require("../../api/cinemas/cinemas.model");
 const Movie = require("../../api/movies/movies.model");
 const { DB_URL } = require("../database/db");
 
@@ -44,7 +45,6 @@ const movies = [
 mongoose
   .connect(DB_URL)
   .then(async () => {
-    //Pregunta
     const allMovies = await Movie.find().lean();
 
     if (!allMovies.length) {

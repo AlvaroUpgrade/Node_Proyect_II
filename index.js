@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("./src/utils/database/db");
 const indexRoutes = require("./src/api/index/index.routes");
+const cinemaRoutes = require("./src/api/cinemas/cinemas.routes");
 const movieRoutes = require("./src/api/movies/movies.routes");
 
 db.connectDb();
@@ -13,6 +14,7 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
 server.use("/", indexRoutes);
+server.use("/cinemas", cinemaRoutes);
 server.use("/movies", movieRoutes);
 
 server.listen(PORT, () => {
